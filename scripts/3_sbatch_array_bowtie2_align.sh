@@ -9,7 +9,7 @@
 #SBATCH --output=<>
 #SBATCH --error=<>
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=soo.m@northeastern.edu
+#SBATCH --mail-user=<>
 
 ## Usage: sbatch 3_sbatch_array_bowtie2_align.sh
 echo "Loading tools"

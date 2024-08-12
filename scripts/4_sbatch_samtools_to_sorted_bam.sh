@@ -9,7 +9,7 @@
 #SBATCH --output=<>
 #SBATCH --error=<>
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=soo.m@northeastern.edu
+#SBATCH --mail-user=<>
 
 echo "Loading tools"
 module load samtools/1.19.2

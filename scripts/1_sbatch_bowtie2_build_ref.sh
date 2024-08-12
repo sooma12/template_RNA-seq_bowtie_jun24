@@ -8,7 +8,7 @@
 #SBATCH --output=<>
 #SBATCH --error=<>
 #SBATCH --mail-type=END
-#SBATCH --mail-user=soo.m@northeastern.edu
+#SBATCH --mail-user=<>
 
 ## Usage: sbatch 1_sbatch_bowtie2_build_ref.sh
 

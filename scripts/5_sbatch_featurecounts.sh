@@ -7,7 +7,7 @@
 #SBATCH --output=<>
 #SBATCH --error=<>
 #SBATCH --mail-type=END
-#SBATCH --mail-user=soo.m@northeastern.edu
+#SBATCH --mail-user=<>
 
 echo "Loading environment and tools"
 module load subread/2.0.6

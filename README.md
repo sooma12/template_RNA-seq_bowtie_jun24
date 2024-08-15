@@ -5,7 +5,13 @@ Written by Mark Soo
 
 ## Copying this template repository to Discovery
 
+Go to the template repository https://github.com/sooma12/template_RNA-seq_bowtie_jun24
 
+Along the menu bar, click the green "Use this template" button -> "Create a new repository"
+
+In the new copied repo, use the green "Code" button and clone as appopriate to /work/ on Discovery (and local device as desired).
+
+Note, BEFORE UNZIPPING FASTQ FILES, use script `check_md5sums.py` to confirm successful file transfer; see that script for details.
 
 ## Setting up config.cfg
 
@@ -45,3 +51,18 @@ This tells the program to create separate subprocesses numbered from 1 to the to
 NOTE: If you have >20 samples, instead of N+1, use 20.
 2. Set --ntasks to the number of samples, N.  Example: `#SBATCH --ntasks=12`
 3. For both --output and --error, I like to change the file names to `%x-%A-%a` instead of `%x-%j`. `%x-%A-%a` uses the array number.
+
+##  Usage
+Run scripts as follows.  Execute all commands from BASE_DIR defined in the config.cfg file (i.e. `cd` to that directory).
+The commands below assume that all scripts are located in $BASE_DIR/scripts
+
+1. `sbatch scripts/0_sbatch_fastqc.sh`
+2. `sbatch scripts/1_sbatch_bowtie2_build_ref.sh`
+3. `bash 2_make_sample_sheet.sh`  # After this command, inspect the sample sheet and ensure that files are listed correctly
+4. `sbatch 3_sbatch_array_bowtie2_align.sh`
+5. `sbatch 4_sbatch_samtools_to_sorted_bam.sh`
+6. `sbatch 5_sbatch_featurecounts.sh`
+7. `bash 6_run_multiqc.sh`
+
+
+

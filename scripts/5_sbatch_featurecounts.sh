@@ -10,7 +10,9 @@
 #SBATCH --mail-user=<>
 
 echo "Loading environment and tools"
-module load subread/2.0.6
+module load anaconda3/2021.05
+eval "$(conda shell.bash hook)"
+conda activate /work/geisingerlab/conda_env/subread
 
 source ./config.cfg
 echo "featureCounts file name: $COUNTS_FILE found in $COUNTS_OUTDIR"
